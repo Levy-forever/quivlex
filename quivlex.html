@@ -6,28 +6,31 @@
     <title>Quivlex</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #0a0a0a;
-            color: white;
+            background-color: #001f3f;
+            color: #E6EDF7; /* fixed: "navy blue" is not a valid CSS color */
         }
 
         header {
-            background-color: #001f3f;
+            background-color: #000080;
             padding: 20px;
             text-align: center;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 36px;
-        }
+        header h1 { margin: 0; font-size: 36px; }
+        header p { margin: 8px 0 0; color: #C9D6EC; }
 
         nav {
             background-color: black;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             padding: 10px;
         }
 
@@ -36,39 +39,46 @@
             text-decoration: none;
             margin: 0 15px;
             font-weight: bold;
+            padding: 6px 0;
         }
 
-        nav a:hover {
-            color: #001f3f;
-        }
+        nav a:hover { color: #6C9EF0; }
 
-        section {
-            padding: 40px;
-            text-align: center;
-        }
+        section { padding: 40px 20px; text-align: center; }
 
         .hero {
-            background: url('images/hero.jpg') no-repeat center/cover;
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                        url('https://picsum.photos/id/180/1600/600') no-repeat center/cover;
             height: 300px;
             display: flex;
             justify-content: center;
             align-items: center;
+            border-radius: 8px;
         }
 
         .hero h2 {
             background-color: rgba(0,0,0,0.7);
             padding: 20px;
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .home-preview {
+            max-width: 500px;
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 24px;
         }
 
         .services, .portfolio {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             flex-wrap: wrap;
+            gap: 15px;
         }
 
         .card {
-            background-color: #001f3f;
-            margin: 15px;
+            background-color: #052a52;
             padding: 20px;
             border-radius: 10px;
             width: 250px;
@@ -76,29 +86,27 @@
 
         .card img {
             width: 100%;
+            height: 160px;
+            object-fit: cover;
             border-radius: 10px;
         }
 
-        footer {
-            background-color: black;
-            text-align: center;
-            padding: 15px;
-        }
+        .card h3 { margin: 12px 0 6px; }
+        .card p { color: #C9D6EC; font-size: 14px; margin: 0; }
 
-        /* Improved Form Styling */
-        form {
-            max-width: 400px;
-            margin: auto;
-        }
+        footer { background-color: black; text-align: center; padding: 15px; }
+
+        form { max-width: 400px; margin: 20px auto 0; }
 
         input, textarea {
             width: 100%;
             padding: 10px;
             border-radius: 5px;
             border: none;
+            margin-bottom: 12px;
+            font-family: Arial, sans-serif;
         }
 
-        /* Stylish Contact Button */
         .contact-btn {
             background: linear-gradient(45deg, #001f3f, navy);
             color: white;
@@ -115,6 +123,24 @@
             background: linear-gradient(45deg, navy, #001f3f);
             transform: scale(1.05);
             box-shadow: 0 0 20px rgba(0, 31, 63, 0.9);
+        }
+
+        .contact-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-status { font-size: 14px; margin-top: 10px; min-height: 20px; color: #8FD19E; }
+        .email-line { margin: 4px 0; }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 26px; }
+            nav a { margin: 0 8px; font-size: 14px; }
+            .hero { height: 220px; }
+            .hero h2 { font-size: 20px; padding: 14px; }
+            .card { width: 100%; max-width: 320px; }
+            section { padding: 28px 16px; }
         }
     </style>
 </head>
@@ -137,53 +163,45 @@
     <div class="hero">
         <h2>Your Digital Presence Starts Here</h2>
     </div>
-    <img src="https://i.pinimg.com/736x/95/d2/7f/95d27f7765fadeaee594323516a258c5.jpg" alt="project preview">
+    <img class="home-preview" src="https://picsum.photos/id/119/700/450" alt="Project preview">
 </section>
 
 <section id="services">
     <h2>Our Services</h2>
     <div class="services">
-
         <div class="card">
-            <img src="https://i.pinimg.com/736x/75/e0/61/75e06170e12c918187a64335c0a99d42.jpg" alt="Web Design">
+            <img src="https://picsum.photos/id/60/400/300" alt="Web Design">
             <h3>Web Design</h3>
             <p>Modern, responsive and clean designs for your brand.</p>
         </div>
-
         <div class="card">
-            <img src="https://i.pinimg.com/736x/34/79/81/347981629a863b68b50337c14642cd42.jpg" alt="Development">
+            <img src="https://picsum.photos/id/48/400/300" alt="Web Development">
             <h3>Web Development</h3>
             <p>Fast, secure and scalable websites built to perform.</p>
         </div>
-
         <div class="card">
-            <img src="https://i.pinimg.com/1200x/f6/77/cf/f677cf27be1d33979a55812edfc406dc.jpg" alt="Marketing">
+            <img src="https://picsum.photos/id/96/400/300" alt="Digital Marketing">
             <h3>Digital Marketing</h3>
             <p>Grow your audience and boost your business visibility.</p>
         </div>
-
     </div>
 </section>
 
 <section id="portfolio">
     <h2>Our Work</h2>
     <div class="portfolio">
-
         <div class="card">
-            <img src="https://i.pinimg.com/736x/63/2b/80/632b80cca4fbc8ba249392ee473236ea.jpg" alt="Project 1">
+            <img src="https://picsum.photos/id/180/400/300" alt="Company Website project">
             <h3>Company Website</h3>
         </div>
-
         <div class="card">
-            <img src="https://i.pinimg.com/736x/c5/ea/44/c5ea44696046eec9fe8e07f22c609a77.jpg" alt="Project 2">
+            <img src="https://picsum.photos/id/26/400/300" alt="E-commerce Store project">
             <h3>E-commerce Store</h3>
         </div>
-
         <div class="card">
-            <img src="https://i.pinimg.com/736x/25/67/1f/25671fd5fc1c8115dbc86eca4a979223.jpg" alt="Project 3">
+            <img src="https://picsum.photos/id/1025/400/300" alt="Brand Portfolio project">
             <h3>Brand Portfolio</h3>
         </div>
-
     </div>
 </section>
 
@@ -197,22 +215,51 @@
 
 <section id="contact">
     <h2>Contact Us</h2>
+    <p class="email-line">Email: joycelevonia@gmail.com</p>
+    <p class="email-line">Email: Leonndungu504@gmail.com</p>
 
-    <p>Email: joycelevonia@gmail.com</p>
-    <p>Email: Leonndungu504@gmail.com</p>
-
-    <form>
-        <input type="text" placeholder="Your Name" required><br><br>
-        <input type="email" placeholder="Your Email" required><br><br>
-        <textarea placeholder="Your Message" rows="5" required></textarea><br><br>
-
+    <form id="contactForm">
+        <input id="cf-name" type="text" placeholder="Your Name" required>
+        <input id="cf-email" type="email" placeholder="Your Email" required>
+        <textarea id="cf-message" placeholder="Your Message" rows="5" required></textarea>
         <button class="contact-btn" type="submit">Send Message</button>
+        <p class="form-status" id="formStatus"></p>
     </form>
 </section>
 
 <footer>
     <p>&copy; 2026 Quivlex. All rights reserved.</p>
 </footer>
+
+<script>
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById('cf-name').value.trim();
+        const email = document.getElementById('cf-email').value.trim();
+        const message = document.getElementById('cf-message').value.trim();
+
+        if (!name || !email || !message) {
+            status.textContent = 'Please fill in every field before sending.';
+            status.style.color = '#F2A5A5';
+            return;
+        }
+
+        const to = 'joycelevonia@gmail.com';
+        const subject = encodeURIComponent('New enquiry from ' + name);
+        const body = encodeURIComponent(
+            message + '\n\n— ' + name + ' (' + email + ')'
+        );
+
+        window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
+
+        status.textContent = 'Opening your email app to send this message...';
+        status.style.color = '#8FD19E';
+    });
+</script>
 
 </body>
 </html>
